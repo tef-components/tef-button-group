@@ -33,97 +33,43 @@
     <body>
         <tef-core brand="telefonica"></tef-core>
         <h1>TEF button-groups - Web Components Version</h1>
-        <h2>Default</h2>
-        <tef-button-group toggle single>
-           <tef-button label="Small"></tef-button>
-           <tef-button label="Default"></tef-button>
-           <tef-button label="Large"></tef-button>
+        <h2>Default container</h2>
+        <tef-button-group>
+           <tef-button label="First"></tef-button>
+           <tef-button label="Middle"></tef-button>
+           <tef-button label="Last"></tef-button>
         </tef-button-group>
         <code>
           <style>
-        <tef-button size="small" label="Small"></tef-button>
-        <tef-button label="Default"></tef-button>
-        <tef-button size="large" label="Large"></tef-button>
-          </style>
-        </code>
-        <h2>Positive</h2>
-        <div>
-           <tef-button size="small" type="positive" label="Small"></tef-button>
-           <tef-button type="positive" label="Default"></tef-button>
-           <tef-button size="large" type="positive" label="Large"></tef-button>
-        </div>
-        <code>
-          <style>
-       <tef-button size="small" type="positive" label="Small"></tef-button>
-       <tef-button type="positive" label="Default"></tef-button>
-       <tef-button size="large" type="positive" label="Large"></tef-button>
-          </style>
-        </code>
-        <h2>Negative</h2>
-        <div>
-           <tef-button size="small" type="negative" label="Small"></tef-button>
-           <tef-button type="negative" label="Default"></tef-button>
-           <tef-button size="large" type="negative" label="Large"></tef-button>
-        </div>
-        <code>
-          <style>
-       <tef-button size="small" type="negative" label="Small"></tef-button>
-       <tef-button type="negative" label="Default"></tef-button>
-       <tef-button size="large" type="negative" label="Large"></tef-button>
-          </style>
-        </code>
-        <h2>Subdued</h2>
-        <div>
-           <tef-button size="small" type="subdued" label="Small"></tef-button>
-           <tef-button type="subdued" label="Default"></tef-button>
-           <tef-button size="large" type="subdued" label="Large"></tef-button>
-        </div>
-        <code>
-          <style>
-       <tef-button size="small" type="subdued" label="Small"></tef-button>
-       <tef-button type="subdued" label="Default"></tef-button>
-       <tef-button size="large" type="subdued" label="Large"></tef-button>
-          </style>
-        </code>
-        <h2>Significant</h2>
-        <div>
-           <tef-button size="small" type="significant" label="Small"></tef-button>
-           <tef-button type="significant" label="Default"></tef-button>
-           <tef-button size="large" type="significant" label="Large"></tef-button>
-        </div>
-        <code>
-          <style>
-       <tef-button size="small" type="significant" label="Small"></tef-button>
-       <tef-button type="significant" label="Default"></tef-button>
-       <tef-button size="large" type="significant" label="Large"></tef-button>
+        <tef-button-group>
+           <tef-button label="First"></tef-button>
+           <tef-button label="Middle"></tef-button>
+           <tef-button label="Last"></tef-button>
+        </tef-button-group>
           </style>
         </code>
         <h2>Toggle</h2>
-        <div>
-           <tef-button active toggle size="small" label="Small"></tef-button>
-           <tef-button toggle label="Default"></tef-button>
-           <tef-button toggle size="large" label="Large"></tef-button>
-        </div>
+        <tef-button-group toggle>
+           <tef-button label="First"></tef-button>
+           <tef-button label="Middle"></tef-button>
+           <tef-button label="Last"></tef-button>
+        </tef-button-group>
         <code>
           <style>
-       <tef-button toggle size="small" label="Small">Hello</tef-button>
-       <tef-button toggle label="Default"></tef-button>
-       <tef-button toggle size="large" label="Large"></tef-button>
+        <tef-button-group toggle></tef-button-group>
           </style>
         </code>
-        <h2>Disabled</h2>
-        <div>
-           <tef-button disabled label="Default"></tef-button>
-           <tef-button disabled type="positive" label="Positive"></tef-button>
-           <tef-button disabled type="negative" label="Negative"></tef-button>
-           <tef-button disabled type="subdued" label="Subdued"></tef-button>
-           <tef-button disabled type="significant" label="Significant"></tef-button>           
-        </div>
+        <h2>Toggle single</h2>
+        <tef-button-group toggle single>
+           <tef-button label="First"></tef-button>
+           <tef-button label="Middle"></tef-button>
+           <tef-button label="Last"></tef-button>
+        </tef-button-group>
         <code>
           <style>
-        <tef-button disabled label="Default"></tef-button>
+        <tef-button-group toggle single></tef-button-group>
           </style>
         </code>
-    </body>
+  </body>
 </html>
 
