@@ -1,0 +1,89 @@
+<link rel="import" href="bower_components/tef-button/tef-button.html">
+
+<polymer-element name="tef-button-group" attributes="size toggle single disabled">
+
+    <template>
+        <link rel="stylesheet" href="bower_components/button-groups/css/button-groups.min.css">
+    	<style>
+		.tef-button-group ::content > * {
+		  float: left;
+		  margin-left: 1px;
+		}
+		.tef-button-group ::content > *:first-child::shadow .tef-button {
+		  border-radius: 3px 0 0 3px;
+		}
+		.tef-button-group ::content > *:last-child::shadow .tef-button {
+		  border-radius: 0 3px 3px 0;
+		}
+		.tef-button-group ::content ::shadow .tef-button {
+		  border-radius: 0;
+		}
+		.tef-button-group ::content ::shadow > .tef-button {
+		  display: block;
+		}
+		.tef-button-group ::content ::shadow > .tef-button:first-child {
+		  border-radius: 3px 0 0 3px;
+		}
+		.tef-button-group ::content ::shadow > .tef-button:last-child {
+		  border-radius: 0 3px 3px 0;
+		}
+		.tef-button-group ::content tef-button + tef-button {
+		  margin-left: 1px;
+		}
+		
+    	</style>
+	    
+		<ul class="tef-button-group">
+			<content select="tef-button"></content>
+		</ul>
+	</template>
+	<script>
+		Polymer({
+			toggle: false,
+			single: false,
+			size: "",
+			publish: {
+				disabled:{
+					value: false,
+					reflect: true
+				}
+			},
+			disabledChanged: function(oldValue, newValue){				
+				if (newValue){//If disabled, we add disabled to all buttons
+					for (var i = 0; i < this.children.length; i++) this.children[i].setAttribute("disabled", "");
+					
+				}else{//If !disabled, we remove disabled from all buttons
+					for (var i = 0; i < children.length; i++) this.children[i].removeAttribute("disabled", "");
+				}
+			},
+			attached: function(){
+				var selected = null;
+				
+				if (this.toggle || this.size != ""){//We only need to iterate when this happens
+					for (var i = 0; i < this.children.length; i++){						
+												
+						if (this.toggle) this.children[i].setAttribute("toggle", "");
+
+						if (this.size != "") this.children[i].setAttribute("size", this.size);
+						
+						if (this.toggle && this.single){//If single, then only one button can be toggled
+							this.children[i].addEventListener("activated",function(){
+								if (selected != null){
+									selected.removeAttribute("active");
+								}
+								selected = this;								
+							});
+
+							this.children[i].addEventListener("deactivated",function(){
+								if (selected == this) 
+									selected = null;							
+							});
+						}
+					}
+				}
+			}
+
+		});			
+			
+	</script>	
+</polymer-element>
