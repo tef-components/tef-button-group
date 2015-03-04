@@ -3,31 +3,8 @@
 <polymer-element name="tef-button-group" attributes="size toggle single disabled">
 
     <template>
-        <link rel="stylesheet" href="bower_components/button-groups/css/button-groups.min.css">
-    	<style>
-		.tef-button-group ::content > * {
-		  float: left;
-		  margin-left: 1px;
-		}
-		.tef-button-group ::content > *:first-child::shadow .tef-button {
-		  border-radius: 3px 0 0 3px;
-		}
-		.tef-button-group ::content > *:last-child::shadow .tef-button {
-		  border-radius: 0 3px 3px 0;
-		}
-		.tef-button-group ::content ::shadow .tef-button {
-		  border-radius: 0;
-		}
-		.tef-button-group ::content ::shadow > .tef-button {
-		  display: block;
-		}
+        <link id="myCss" rel="stylesheet" href="bower_components/button-groups/css/button-groups.min.css">
 
-		.tef-button-group ::content tef-button + tef-button {
-		  margin-left: 1px;
-		}
-		
-    	</style>
-	    
 		<ul class="tef-button-group">
 			<content select="tef-button"></content>
 		</ul>
@@ -53,6 +30,12 @@
 			},
 			attached: function(){
 				var selected = null;
+				this.changeCssSelectors(".tef-button-group ::content>*");
+				this.changeCssSelectors(".tef-button-group ::content>*:first-child::shadow .tef-button");
+				this.changeCssSelectors(".tef-button-group ::content>*:last-child::shadow .tef-button");
+				this.changeCssSelectors(".tef-button-group ::content ::shadow .tef-button");
+				this.changeCssSelectors(".tef-button-group ::content ::shadow>.tef-button");
+				this.changeCssSelectors(".tef-button-group ::content tef-button + tef-button", ".tef-button-group>.tef-button+.tef-button");
 				
 				if (this.toggle || this.size != ""){//We only need to iterate when this happens
 					for (var i = 0; i < this.children.length; i++){						
@@ -76,8 +59,19 @@
 						}
 					}
 				}
-			}
+			},
 
+			changeCssSelectors: function(newClass, oldClass){
+				if (!oldClass){
+					oldClass = newClass;
+					oldClass = oldClass.replace(/\s{0,}::shadow/g, "");
+					oldClass = oldClass.replace(/\s{0,}::content/g, "");
+					oldClass = oldClass.replace(/\s{2,}/g, " ");					
+				}
+				if (this.$.myCss.innerHTML.indexOf(oldClass) == -1)
+					console.log("Css '"+oldClass+"' not found");
+				this.$.myCss.innerHTML = this.$.myCss.innerHTML.replace(oldClass, newClass);
+			}
 		});			
 			
 	</script>	
