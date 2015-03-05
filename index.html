@@ -15,7 +15,7 @@
             display: block;
             overflow: hidden;
           }
-          header * {
+          header > * {
             display: inline-block;
             vertical-align: middle;
           }
@@ -23,7 +23,7 @@
             margin-left: 30px;
             font-size: 12px;
           }
-          style {
+          code > style {
             display: block !important;
             white-space: pre;
             margin-left: -65px;
@@ -33,7 +33,16 @@
     </head>
     <body>
         <tef-core brand="o2"></tef-core>
-        <h1>TEF button-groups - Web Components Version</h1>
+        <header>
+          <h1>TEF button-groups - Web Components Version</h1>
+          <span>Change theme</span>
+          <select id="themeSelector">
+            <option value="telefonica">Telefónica</option>
+            <option value="movistar">Movistar</option>
+            <option value="o2">O2</option>
+            <option value="vivo">Vivo</option>
+          </select>
+        </header>
         <h2>Default container</h2>
         <tef-button-group>
            <tef-button>First</tef-button>
@@ -170,6 +179,12 @@
         </tef-button-group>
           </style>
         </code>
+    <script>
+      var theme = document.getElementById('themeSelector');
+        theme.addEventListener('change', function() {
+          document.querySelector('tef-core').setAttribute('brand', theme.value);
+      });
+    </script>
   </body>
 </html>
 
