@@ -1,2 +1,2 @@
-# tef-button-groups
-Web component version of button-groups using Polymer.
+# tef-group
+Web component version of button-groups and inputs groups using Polymer.

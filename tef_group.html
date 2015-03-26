@@ -1,0 +1,62 @@
+
+<link rel="import" href="tef_group_styles.html">
+<link rel="import" href="../core-style/tef_group_styles.html">
+<polymer-element name="tef-group" attributes="size toggle single disabled row">
+
+    <template>        
+        <core-style ref="tef-group"></core-style>
+			<div class="{{row ? 'tef-row' : 'tef-group tef-button-group'}}">
+				<content></content>
+			</div>
+	</template>
+	<script>
+		Polymer({
+			toggle: false,
+			single: false,
+			row: false,
+			size: "",
+			publish: {
+				disabled:{
+					value: false,
+					reflect: true
+				}
+			},
+			disabledChanged: function(oldValue, newValue){
+				if (newValue){//If disabled, we add disabled to all buttons
+					for (var i = 0; i < this.children.length; i++) this.children[i].setAttribute("disabled", "");
+					
+				}else{//If !disabled, we remove disabled from all buttons
+					for (var i = 0; i < this.children.length; i++) this.children[i].removeAttribute("disabled", "");
+				}
+			},
+			attached: function(){
+				var selected = null;
+				if (!this.form_group && !this.form_row) console.log("It works...");
+				
+				if (this.toggle || this.size != ""){//We only need to iterate when this happens
+					for (var i = 0; i < this.children.length; i++){						
+												
+						if (this.toggle) this.children[i].setAttribute("toggle", "");
+
+						if (this.size != "") this.children[i].setAttribute("size", this.size);
+						
+						if (this.toggle && this.single){//If single, then only one button can be toggled
+							this.children[i].addEventListener("activated",function(){
+								if (selected != null){
+									selected.removeAttribute("active");
+								}
+								selected = this;								
+							});
+
+							this.children[i].addEventListener("deactivated",function(){
+								if (selected == this) 
+									selected = null;							
+							});
+						}
+					}
+				}
+			}
+		});			
+			
+	</script>	
+</polymer-element>
