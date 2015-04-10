@@ -1,11 +1,13 @@
 
 <link rel="import" href="tef_group_styles.html">
-<link rel="import" href="../core-style/tef_group_styles.html">
+<link rel="import" href="../core-style/core-style.html">
+<link rel="import" href="../polymer/polymer.html">
+
 <polymer-element name="tef-group" attributes="size toggle single disabled row">
 
     <template>        
         <core-style ref="tef-group"></core-style>
-			<div class="{{row ? 'tef-row' : 'tef-group tef-button-group'}}">
+			<div class="{{resolveClass(row, input)}}">
 				<content></content>
 			</div>
 	</template>
@@ -14,12 +16,18 @@
 			toggle: false,
 			single: false,
 			row: false,
+			input: false,
 			size: "",
 			publish: {
 				disabled:{
 					value: false,
 					reflect: true
 				}
+			},
+			resolveClass: function(row ,input){				
+				if (row) return "tef-row";
+				else if (input) return "tef-group";
+				else return "tef-button-group";
 			},
 			disabledChanged: function(oldValue, newValue){
 				if (newValue){//If disabled, we add disabled to all buttons
@@ -30,31 +38,36 @@
 				}
 			},
 			attached: function(){
-				var selected = null;
-				if (!this.form_group && !this.form_row) console.log("It works...");
-				
-				if (this.toggle || this.size != ""){//We only need to iterate when this happens
-					for (var i = 0; i < this.children.length; i++){						
+				var selected = null;				
+				for (var i = 0; i < this.children.length; i++){
+					
+					if (this.children[i].tagName.toLowerCase() == "tef-input"){//This child is an input
+						if (!this.input){
+							this.input = true;							
+						}
+						this.children[i].setAttribute(this.size, "");
+					}else{//This child is a button
 												
 						if (this.toggle) this.children[i].setAttribute("toggle", "");
 
 						if (this.size != "") this.children[i].setAttribute("size", this.size);
 						
 						if (this.toggle && this.single){//If single, then only one button can be toggled
-							this.children[i].addEventListener("activated",function(){
+							this.children[i].addEventListener("toggle-on",function(e){								
 								if (selected != null){
 									selected.removeAttribute("active");
 								}
-								selected = this;								
+								selected = this;
 							});
-
-							this.children[i].addEventListener("deactivated",function(){
-								if (selected == this) 
-									selected = null;							
+													
+							this.children[i].addEventListener("toggle-off",function(e){
+								if (!selected) selected = this;								
+								this.setAttribute("active", "");															
 							});
 						}
 					}
 				}
+				
 			}
 		});			
 			
