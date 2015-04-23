@@ -1,0 +1,33 @@
+{
+  "name": "tef_input",
+  "version": "0.1.2",
+  "homepage": "https://github.com/tef-components/tef_input",
+  "authors": [
+    "the TEF components team"
+  ],
+  "description": "TEF components - tef-input",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "bower.json",
+    ".gitignore",
+    "README.md",
+    "Gruntfile.js",
+    "package.json",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5.5",
+    "dropdowns": "tef-components/inputs#master",
+    "webcomponentsjs": "^0.5.5",
+    "core-style": "Polymer/core-style#^0.5.5"
+  },
+  "devDependencies": {
+    "icons": "tef-components/icons",
+    "polymer": "Polymer/polymer#^0.5.5",
+    "dropdowns": "tef-components/inputs#master",
+    "webcomponentsjs": "^0.5.5",
+    "core-style": "Polymer/core-style#^0.5.5"
+  }
+}

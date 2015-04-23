@@ -1,0 +1,32 @@
+{
+  "name": "inputs",
+  "homepage": "https://github.com/tef-components/inputs",
+  "authors": [
+    "the TEF components team"
+  ],
+  "description": "TEF components - inputs",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "bower.json",
+    ".gitignore",
+    "README.md",
+    "Gruntfile.js",
+    "package.json",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "utils": "tef-components/utils",
+    "icons": "tef-components/icons"
+  },
+  "_release": "bed4a0fa95",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "bed4a0fa951b851fd1c18d6973df22c0e420fe29"
+  },
+  "_source": "git://github.com/tef-components/inputs.git",
+  "_target": "master",
+  "_originalSource": "tef-components/inputs"
+}

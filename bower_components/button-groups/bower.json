@@ -1,0 +1,25 @@
+{
+  "name": "button-groups",
+  "version": "0.1.8",
+  "homepage": "https://github.com/tef-components/button-groups",
+  "authors": [
+    "the TEF components team"
+  ],
+  "description": "TEF components - button-groups",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "bower.json",
+    ".gitignore",
+    "README.md",
+    "Gruntfile.js",
+    "package.json",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "utils": "tef-components/utils",
+    "buttons": "tef-components/buttons",
+    "icons": "tef-components/icons"
+  }
+}
