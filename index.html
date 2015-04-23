@@ -2,7 +2,16 @@
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 <html>
     <head>
-        <script type="text/javascript" src="../webcomponentsjs/webcomponents.js"></script>        
+              <!-- Web Components polyfill -->
+      <script>
+        if ('registerElement' in document
+          && 'createShadowRoot' in HTMLElement.prototype
+          && 'import' in document.createElement('link')
+          && 'content' in document.createElement('template')) {
+        } else {
+          document.write('<script src="../webcomponentsjs/webcomponents.min.js"><\/script>');
+        }
+      </script>     
         <link rel="import" href="../tef_button/tef_button.html">
         <link rel="import" href="tef_group.dev.html">
         <link rel="import" href="../tef_input/tef_input.html">        
@@ -139,12 +148,16 @@
             </style>
           </code>
           <h2>Icons</h2>
+
+
           <tef-group>
             <tef-button>
-              <span>Close</span><i icon="close"></i>
+              <span>Close</span>
+              <i icon="close"></i>
             </tef-button>
             <tef-button>
-              <i icon="search"></i><span>Close</span>
+              <i icon="close"></i>
+              <span>Close</span>
             </tef-button>
             <tef-button>
               <i icon="close"></i>
@@ -191,23 +204,23 @@
             <tef-input placeholder="Enter user name"></tef-input>
             <tef-button type="positive">Button</tef-button>
           </tef-group>
-          <div class="tef-row">
-            <a href="" class="tef-button">Anchor</a>
-            <input type="text" class="tef-input" placeholder="Enter user name">
-            <button class="tef-button positive">Button</button>
-          </div>
-          <div class="tef-row">
-            <a href="" class="tef-button large">Anchor</a>
-            <input type="text" class="tef-input large" placeholder="Enter user name">
-            <button class="tef-button large positive">Button</button>
-          </div>
+          <tef-group row>
+            <tef-button>Anchor</tef-button>
+            <tef-input placeholder="Enter user name"></tef-input>
+            <tef-button type="positive">Button</tef-button>
+          </tef-group>
+          <tef-group row size="large">
+            <tef-button>Anchor</tef-button>
+            <tef-input placeholder="Enter user name"></tef-input>
+            <tef-button type="positive">Button</tef-button>
+          </tef-group>
           <code>
             <style>
-          <div class="tef-row">
-            <a href="" class="tef-button small">Anchor</a>
-            <input type="text" class="tef-input small" placeholder="Enter user name">
-            <button class="tef-button small positive">Button</button>
-          </div>
+          <tef-group row size="small">
+            <tef-button>Anchor</tef-button>
+            <tef-input placeholder="Enter user name"></tef-input>
+            <tef-button type="positive">Button</tef-button>
+          </tef-group>
             </style>
           </code>
 
@@ -218,83 +231,84 @@
             <tef-input placeholder="Enter user name"></tef-input>
             <tef-button type="positive">Button</tef-button>
           </tef-group>
-          <div class="tef-group">
-            <a href="" class="tef-button">Anchor</a>
-            <input type="text" class="tef-input" placeholder="Enter user name">
-            <button class="tef-button positive">Button</button>
-          </div>
-          <div class="tef-group">
-            <a href="" class="tef-button large">Anchor</a>
-            <input type="text" class="tef-input large" placeholder="Enter user name">
-            <button class="tef-button large positive">Button</button>
-          </div>
+          <tef-group>
+            <tef-button>Anchor</tef-button>
+            <tef-input placeholder="Enter user name"></tef-input>
+            <tef-button type="positive">Button</tef-button>
+          </tef-group>
+          <tef-group size="large">
+            <tef-button>Anchor</tef-button>
+            <tef-input placeholder="Enter user name"></tef-input>
+            <tef-button type="positive">Button</tef-button>
+          </tef-group>
           <code>
             <style>
-          <div class="tef-group">
-            <a href="" class="tef-button small">Anchor</a>
-            <input type="text" class="tef-input small" placeholder="Enter user name">
-            <button class="tef-button small positive">Button</button>
-          </div>
+          <tef-group>
+            <tef-button>Anchor</tef-button>
+            <tef-input placeholder="Enter user name"></tef-input>
+            <tef-button type="positive">Button</tef-button>
+          </tef-group>
             </style>
           </code>
 
-          <div class="tef-group">
-            <button class="tef-button">
+          <tef-group>
+            <tef-button>
               <i icon="minus"></i>
-            </button>
-            <button class="tef-button">
+            </tef-button>
+            <tef-button>
               <i icon="plus"></i>
-            </button>
-            <input type="text" class="tef-input" placeholder="Enter user name">
-          </div>
+            </tef-button>
+            <tef-input placeholder="Enter user name"></tef-input>
+          </tef-group>
 
-          <div class="tef-group">
-            <a class="tef-button">
+          <tef-group>
+            <tef-button>
               <i icon="minus"></i>
-            </a>
-            <input type="text" class="tef-input" placeholder="Enter user name">
-            <button class="tef-button">
+            </tef-button>
+            <tef-input placeholder="Enter user name"></tef-input>
+            <tef-button>
               <i icon="plus"></i>
-            </button>
-          </div>
+            </tef-button>            
+          </tef-group>
 
-          <div class="tef-group">
-            <input type="text" class="tef-input" placeholder="Enter user name">
-            <button class="tef-button">
+          <tef-group>
+            <tef-input placeholder="Enter user name"></tef-input>
+            <tef-button>
               <i icon="minus"></i>
-            </button>
-            <button class="tef-button">
+            </tef-button>
+            <tef-button>
               <i icon="plus"></i>
-            </button>
-          </div>
+            </tef-button>            
+          </tef-group>
+          
           <code>
             <style>
-          <div class="tef-group">
-            <button class="tef-button">
+          <tef-group>
+            <tef-button>
               <i icon="minus"></i>
-            </button>
-            <input type="text" class="tef-input" placeholder="Enter user name">
-            <button class="tef-button">
+            </tef-button>
+            <tef-button>
               <i icon="plus"></i>
-            </button>
-          </div>
+            </tef-button>
+            <tef-input placeholder="Enter user name"></tef-input>
+          </tef-group>
             </style>
           </code>
       </div>
     <script>
       var theme = document.getElementById('themeSelector');
-        theme.addEventListener('change', function() {
-          document.querySelector('tef-core').setAttribute('brand', theme.value);
-
-          document.head.removeChild(document.getElementById("themeVars"));
-          var linkVars = document.createElement('script');
-          linkVars.id = "themeVars";
-
-          linkVars.src = '../theme_'
-            + theme.value + '/theme.'
-            + theme.value + '.js';
-
-          document.head.appendChild(linkVars);
+        theme.addEventListener('change', function() {          
+        var linkComps = document.getElementById('themeComps');
+        linkComps.href = '../theme_'
+          + theme.value + '/css/components.'
+          + theme.value + '.css';
+        var linkVars = document.createElement('script');
+        linkVars.id = "themeVars";
+        linkVars.src = '../theme_'
+          + theme.value + '/theme.'
+          + theme.value + '.js';
+        document.head.removeChild(document.getElementById("themeVars"));
+        document.head.appendChild(linkVars);
       });
     </script>
   </body>

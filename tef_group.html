@@ -45,7 +45,7 @@
 						if (!this.input){
 							this.input = true;							
 						}
-						this.children[i].setAttribute(this.size, "");
+						if (this.size != "")this.children[i].setAttribute(this.size, "");
 					}else{//This child is a button
 												
 						if (this.toggle) this.children[i].setAttribute("toggle", "");

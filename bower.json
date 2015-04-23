@@ -19,6 +19,7 @@
   ],
   "dependencies": {
     "tef_button": "tef-components/tef_button#master",
+    "tef_input": "tef-components/tef_input#master",
     "button-groups" : "tef-components/button-groups#master",
     "inputs" : "tef-components/inputs#master"
   }
