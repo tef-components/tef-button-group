@@ -13,8 +13,9 @@
         }
       </script>     
         <link rel="import" href="../tef_button/tef_button.html">
-        <link rel="import" href="tef_group.dev.html">
-        <link rel="import" href="../tef_input/tef_input.html">        
+        <link rel="import" href="../tef_input/tef_input.html">
+        <link rel="import" href="tef_group.html">                
+        
         <link id="themeComps" rel="stylesheet" href="../theme_telefonica/css/components.telefonica.css">        
         <script id="themeVars" src="../theme_telefonica/theme.telefonica.js"></script>
 
@@ -38,12 +39,16 @@
             overflow-y: auto;
             border-radius: 4px;
           }
+          /*Custom styles for this demo*/
+          tef-group + tef-group{
+            margin-left: 20px;
+          }
         </style>
     </head>
     <body>
       <div class="tef-wrapper">
         <header columns="2" columns-xs="1">        
-            <h1>TEF button groups</h1>
+            <h1>tef-group</h1>
             <div>
               <label>Change theme</label>
               <div class="tef-dropdown" icon="angle_down">
@@ -73,6 +78,7 @@
             </style>
           </code>
           <h2>Toggle</h2>
+          <p>If you set the <b>toggle</b> attribute, all buttons will have the toggle behaviour.</p>
           <tef-group toggle>
              <tef-button>First</tef-button>
              <tef-button>Middle</tef-button>
@@ -88,6 +94,7 @@
             </style>
           </code>
           <h2>Toggle single</h2>
+          <p>If you also set <b>single</b>, only one button at a time can be pressed. </p>
           <tef-group toggle single>
              <tef-button>First</tef-button>
              <tef-button>Middle</tef-button>
@@ -103,6 +110,7 @@
             </style>
           </code>
           <h2>Size</h2>
+          <p>The <b>size</b> attribute will set the size of all the elements inside the group. You can also set the size of each element individually.</p>
           <tef-group size="small">
              <tef-button>First</tef-button>
              <tef-button>Middle</tef-button>
@@ -112,6 +120,11 @@
              <tef-button>First</tef-button>
              <tef-button>Middle</tef-button>
              <tef-button>Last</tef-button>
+          </tef-group>
+          <tef-group>
+            <tef-button size="large">First</tef-button>
+            <tef-button>Middle</tef-button>
+            <tef-button size="small">Last</tef-button>
           </tef-group>
           <code>
             <style>
@@ -125,6 +138,12 @@
             <tef-button>First</tef-button>
             <tef-button>Middle</tef-button>
             <tef-button>Last</tef-button>
+          </tef-group>
+
+          <tef-group>
+            <tef-button size="large">First</tef-button>
+            <tef-button>Middle</tef-button>
+            <tef-button size="small">Last</tef-button>
           </tef-group>
             </style>
           </code>
@@ -179,12 +198,13 @@
             </style>
           </code>
           <h2>Disabled</h2>
+          <p>The <b>disabled</b> attribute will disable all buttons and inputs inside the tef-group.</p>
           <tef-group disabled>
            <tef-button>Default</tef-button>
            <tef-button type="positive">Positive</tef-button>
            <tef-button type="negative">Negative</tef-button>
            <tef-button type="subdued">Subdued</tef-button>
-           <tef-button type="significant">Significant</tef-button>
+           <tef-button type="significant">Significant</tef-button>           
           </tef-group>
           <code>
             <style>
@@ -199,6 +219,8 @@
           </code>
 
           <h2>Inline Inputs & buttons</h2>
+          <p>You can group tef-input elements with tef-button elements.</p>
+          <p>With the <b>row</b> attribute the elements will have a blank space between them.</p>
           <tef-group row size="small">
             <tef-button>Anchor</tef-button>
             <tef-input placeholder="Enter user name"></tef-input>
@@ -225,7 +247,7 @@
           </code>
 
           <h2>Grouped Inputs & buttons</h2>
-
+          <p>If <b>row</b> is not set, the buttons and inputs will be grouped together.</p>
           <tef-group size="small">
             <tef-button>Anchor</tef-button>
             <tef-input placeholder="Enter user name"></tef-input>
